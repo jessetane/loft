@@ -1,0 +1,11 @@
+{
+  "name": "loft",
+  "version": "0.0.0",
+  "description": "Loft a regular polygon with n sides between two points in 3d space",
+  "dependencies": {
+    "gl-mat4": "^1.1.4",
+    "gl-vec3": "^1.0.3"
+  },
+  "author": "jesse.tane@gmail.com",
+  "license": "MIT"
+}
