@@ -1,6 +1,16 @@
 var loft = require('./')
 
-var triangularTube = loft([0,0,0], [1,1,0], 0.1, 3)
+var start = [0,0,0]
+var end = [1,1,0]
+var radius = 0.1
+var sides = 3
 
-console.log(triangularTube.positions.length)
+var triangularTube = loft(
+  start,
+  end,
+  radius,
+  sides
+)
+
+console.log(triangularTube.positions)
 console.log(triangularTube.cells)
