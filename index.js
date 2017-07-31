@@ -14,14 +14,6 @@ var mat4 = {
 }
 
 function loft (start, end, radius, sides) {
-  if (start[0] === end[0] &&
-      start[1] === end[1] &&
-      start[2] === end[2]) {
-    return {
-      positions: [[0,0,0]],
-      cells: [[0,0,0]]
-    }
-  }
   var positions = []
   var cells = []
   var direction = vec3.subtract([], end, start)
@@ -36,6 +28,12 @@ function loft (start, end, radius, sides) {
   var id = mat4.create()
   for (var i = 0; i < sides; i++) {
     var r = mat4.rotate([], id, step * i, direction)
+    if (!r) {
+      return {
+        positions: [[0,0,0]],
+        cells: [[0,0,0]]
+      }
+    }
     var v = vec3.transformMat4([], orthogonal, r)
     positions.push(
       vec3.add([], v, start),
